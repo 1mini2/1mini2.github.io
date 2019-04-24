@@ -6,27 +6,18 @@ date:   2019-04-24 16:00:00 -0400
 background: '/img/posts/01.jpg'
 ---
 
-<p>도커란, 리눅스 자체 기능인 chroot, namespace, cgroup 을 사용함으로서 프로세스 단위의 격리 환경을 만들어 사용하는 개념</p>
+<p>도커란?</p>
+<p>리눅스 자체 기능인 chroot, namespace, cgroup 을 사용함으로서 프로세스 단위의 격리 환경을 만들어 사용하는 개념</p>
 
-<h2 class="section-heading">The Final Frontier</h2>
+<h2 class="section-heading">테스트 환경</h2>
 
-<p>There can be no thought of finishing for ‘aiming for the stars.’ Both figuratively and literally, it is a task to occupy the generations. And no matter how much progress one makes, there is always the thrill of just beginning.</p>
+<p>(AWS EC2) Ubuntu 16.04.5 LTS</p>
 
-<p>There can be no thought of finishing for ‘aiming for the stars.’ Both figuratively and literally, it is a task to occupy the generations. And no matter how much progress one makes, there is always the thrill of just beginning.</p>
+<blockquote class="blockquote">"아마존 웹 서비스의 EC2를 가지고 Docker test를 진행하였는데, 아마존 웹서비스 ECS(Elastic container service)와 사용비교 할 예정입니다.".</blockquote>
 
-<blockquote class="blockquote">The dreams of yesterday are the hopes of today and the reality of tomorrow. Science has not yet mastered prophecy. We predict too much for the next year and yet far too little for the next ten.</blockquote>
+<h2 class="section-heading">Install Docker</h2>
 
-<p>Spaceflights cannot be stopped. This is not the work of any one man or even a group of men. It is a historical process which mankind is carrying out in accordance with the natural laws of human development.</p>
-
-<h2 class="section-heading">Reaching for the Stars</h2>
-
-<p>As we got further and further away, it [the Earth] diminished in size. Finally it shrank to the size of a marble, the most beautiful you can imagine. That beautiful, warm, living object looked so fragile, so delicate, that if you touched it with a finger it would crumble and fall apart. Seeing this has to change a man.</p>
-
-<img class="img-fluid" src="https://source.unsplash.com/Mn9Fa_wQH-M/800x450" alt="Demo Image">
-<span class="caption text-muted">To go places and do things that have never been done before – that’s what living is all about.</span>
-
-<p>Space, the final frontier. These are the voyages of the Starship Enterprise. Its five-year mission: to explore strange new worlds, to seek out new life and new civilizations, to boldly go where no man has gone before.</p>
-
-<p>As I stand out here in the wonders of the unknown at Hadley, I sort of realize there’s a fundamental truth to our nature, Man must explore, and this is exploration at its greatest.</p>
-
-<p>Placeholder text by <a href="http://spaceipsum.com/">Space Ipsum</a>. Photographs by <a href="https://unsplash.com/">Unsplash</a>.</p>
+<p>https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -</p>
+<p>#add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"</p>
+<p>#apt-get update</p>
+<p>#apt-get install docker-ce</p>

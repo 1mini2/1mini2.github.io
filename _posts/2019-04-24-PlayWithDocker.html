@@ -13,7 +13,7 @@ background: '/img/posts/01.jpg'
 
 <p>(AWS EC2) Ubuntu 16.04.5 LTS</p>
 
-<blockquote class="blockquote">"아마존 웹 서비스의 EC2를 가지고 Docker test를 진행하였는데, 아마존 웹서비스 ECS(Elastic container service)와 사용비교 할 예정입니다.".</blockquote>
+
 
 <h2 class="section-heading">Install Docker</h2>
 
@@ -21,3 +21,22 @@ background: '/img/posts/01.jpg'
 <p>#add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"</p>
 <p>#apt-get update</p>
 <p>#apt-get install docker-ce</p>
+
+<h2 class="section-heading">Install wordpress Container </h2>
+
+<blockquote class="blockquote">option -e, configure parameter in the container.</blockquote>
+<blockquote class="blockquote">opdion -p, binding container's network port to host's network port, this configure is for internet communication.</blockquote>
+<p>#docker run -d --name wordpressdb -e MYSQL_ROOT_PASSWORD=password -e MYSQL_DATABASE=wordpress mysql:5.7</p>
+<p>#docker run -d -e WORDPRESS_DB_PASSWORD=password --name wordpress --link wordpressdb:mysql -p 80:80 wordpress</p>
+
+<blockquote class="blockquote">* how to get into containter which running DB or Web?</blockquote>
+<blockquote class="blockquote">#docker exec [options] [command]</blockquote>
+<blockquote class="blockquote">#docker exec -i -t wordpressdb /bin/bash</blockquote>
+<blockquote class="blockquote">#docker exec wordpressdb ls /</blockquote>
+
+<h2 class="section-heading">Share Host Volume for Persistent Using Data </h2>
+
+<blockquote class="blockquote">option -v, share directory between host and container</blockquote>
+
+<p>#docker run -d --name wordpressdb_hostvolume -e MYSQL_ROOT_PASSWORD=password -e MYSQL_DATABASE=wordpress -v /home/workpress_db:/var/lib/mysql mysql:5.7</p>
+<p>#docker run -d -e WORDPRESS_DB_PASSWORD=password --name wordpress_hostvolume --link wordpressdb_hostvolume:mysql -p 80:80 wordpress</p>

@@ -1,15 +1,15 @@
-title:             Clean Blog (wonmintest)
-email:             your-email@example.com
-description:       A Blog Theme by Start Bootstrap
-author:            Start Bootstrap
+title:             wonmin LAB
+email:             1mini2@naver.com
+description:       원민 테스트 블로그 입니다.
+author:            이원민
 baseurl:           "/"
 url:               "http://1mini2.github.io"
 theme:             Minimal
 
 # Social Profiles
-twitter_username:  SBootstrap
-github_username:   BlackrockDigital
-facebook_username: StartBootstrap
+twitter_username:  1mini2
+github_username:   1mini2
+facebook_username: 1mini2
 
 # Build settings
 markdown:          kramdown

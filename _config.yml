@@ -4,7 +4,7 @@ description:       A Blog Theme by Start Bootstrap
 author:            Start Bootstrap
 baseurl:           "/"
 url:               "http://1mini2.github.io"
-theme:             jekyll-theme-clean-blog
+theme:             minimal
 
 # Social Profiles
 twitter_username:  SBootstrap

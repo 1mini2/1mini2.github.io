@@ -1,29 +1,29 @@
 ---
 layout: post
 title:  "Play with Docker"
-subtitle: "도커 기본 사용법"
+subtitle: "도커 기본 사용법 - (1) 도커의 개념 & 간단한 설치 테스트"
 date:   2019-04-24 16:00:00 -0400
 background: '/img/posts/01.jpg'
 ---
 
-<p>도커란?</p>
-<p>리눅스 자체 기능인 chroot, namespace, cgroup 을 사용하여 프로세스 단위의 격리 환경을 만들어 사용하는 개념</p>
+<h2 class="section-heading">도커란?</h2>
+<p>리눅스 자체 기능을 사용하여 프로세스 단위의 격리 환경을 만들어 사용하는 개념</p>
+<p></p>
+<p>컨테이너를 구현하기 위한 (프로세스 단위의 격리 환경을 생성하기 위한) 리눅스 기능</p>
+<p>chroot, namespace, cgroup 등</p>
 
 <h2 class="section-heading">테스트 환경</h2>
-
 <p>(AWS EC2) Ubuntu 16.04.5 LTS</p>
 
-
-
 <h2 class="section-heading">Install Docker</h2>
-
+<blockquote class="blockquote">리눅스에 도커를 설치해 보자. ;)</blockquote>
 <p>#curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -</p>
 <p>#add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"</p>
 <p>#apt-get update</p>
 <p>#apt-get install docker-ce</p>
 
 <h2 class="section-heading">Install wordpress Container </h2>
-
+<blockquote class="blockquote">도커를 wordpress image를 이용하여 2 tier 서비스를 설치해 보자. ;)</blockquote>
 <blockquote class="blockquote">option -e, configure parameter in the container.</blockquote>
 <blockquote class="blockquote">opdion -p, binding container's network port to host's network port, this configure is for internet communication.</blockquote>
 <p>#docker run -d --name wordpressdb -e MYSQL_ROOT_PASSWORD=password -e MYSQL_DATABASE=wordpress mysql:5.7</p>
@@ -33,10 +33,3 @@ background: '/img/posts/01.jpg'
 <blockquote class="blockquote">#docker exec [options] [command]</blockquote>
 <blockquote class="blockquote">#docker exec -i -t wordpressdb /bin/bash</blockquote>
 <blockquote class="blockquote">#docker exec wordpressdb ls /</blockquote>
-
-<h2 class="section-heading">Share Host Volume for Persistent Using Data </h2>
-
-<blockquote class="blockquote">option -v, share directory between host and container</blockquote>
-
-<p>#docker run -d --name wordpressdb_hostvolume -e MYSQL_ROOT_PASSWORD=password -e MYSQL_DATABASE=wordpress -v /home/workpress_db:/var/lib/mysql mysql:5.7</p>
-<p>#docker run -d -e WORDPRESS_DB_PASSWORD=password --name wordpress_hostvolume --link wordpressdb_hostvolume:mysql -p 80:80 wordpress</p>

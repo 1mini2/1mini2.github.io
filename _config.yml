@@ -4,7 +4,6 @@ description:       원민 테스트 블로그 입니다.
 author:            이원민
 baseurl:           "/"
 url:               "http://1mini2.github.io"
-theme:             Minimal
 
 # Social Profiles
 twitter_username:  1mini2

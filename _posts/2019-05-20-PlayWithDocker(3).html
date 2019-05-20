@@ -17,21 +17,24 @@ background: '/img/posts/docker/Background.jpg'
   <strong>3. veth-XX</strong>: 컨테이너가 생길때 자동으로 생성되며, 각 컨테이너의 네트워크 통신을 위한 가상 네트워크 인터페이스. 컨테이너 내부의 eth0 인터페이스와 연결됨.<br>
 </p>
 <p>
-  ● 도커 네트워크 확인 명령어
+  ● 도커 네트워크 확인 명령어 <br>
   <strong>#docker network ls</strong> - 도커 네트워크 목록 확인<br>
   <strong>#docker network inspect bridge</strong> - 도커 네트워크의 자세한 정보 확인<br>
   <strong>#</strong> - 도커 네트워크 목록 확인<br>
 </p>
 <p>
-  ● 도커 네트워크 타입 종류
+  ● 도커 네트워크 타입 종류 <br>
     <strong>1. bridge network</strong><br>
-    &nbsp;&nbsp;브릿지 네트워크란, docker의 기본 네트워크 방식(Default로 docker0 브릿지 네트워크가 생성된다.<br>
-    &nbsp;&nbsp;컨테이너를 생성하게 되면, 각 컨테이너마다 고유한 network namespace 영역이 하나씩 생성되며, 이때 docker 브릿지에 컨테이너들의 인터페이스가 하나씩 바인딩 되는 구조이다.<br>
-    &nbsp;&nbsp;#docker network inspect bridge - 브릿지 네트워크에 대한 자세한 정보 확인<br>
-    &nbsp;&nbsp;#docker network create --driver bridge "브릿지명" - 새로운 브릿지 인터페이스 생성<br>
-    &nbsp;&nbsp;#docker network create --driver bridge --subnet=172.72.0.0/16 --ip-range=172.72.0.0/24 --gateway=172.72.0.1 "브릿지명"
-    &nbsp;&nbsp;#doaker run -i -t --name network_container --net "브릿지명" ubuntu:14.04<br>
+    docker의 기본 네트워크 방식(Default docker0 브릿지 네트워크)<br>
+    컨테이너를 생성하게 되면, 각 컨테이너마다 고유한 network namespace 영역이 하나씩 생성되며, 이때 docker 브릿지에 컨테이너들의 인터페이스가 하나씩 바인딩 되는 구조이다.<br>
+    &nbsp;&nbsp;<u>#docker network inspect bridge</u> - 브릿지 네트워크에 대한 자세한 정보 확인<br>
+    &nbsp;&nbsp;<u>#docker network create --driver bridge "브릿지명"</u> - 새로운 브릿지 인터페이스 생성<br>
+    &nbsp;&nbsp;<u>#docker network create --driver bridge --subnet=172.72.0.0/16 --ip-range=172.72.0.0/24 --gateway=172.72.0.1 "브릿지명"</u> - IP 대역 지정하여 브릿지 인터페이스 생성
+    &nbsp;&nbsp;<u>#doaker run -i -t --name network_container --net "브릿지명" ubuntu:14.04</u> - 새로 생성한 네트워크 브릿지에 연결되는 컨테이너 생성 및 실행<br>
     <strong>2. host network</strong>
+    &nbsp;&nbsp;
+    &nbsp;&nbsp;
+    &nbsp;&nbsp;
     <strong>3. none network</strong>
 </p>
 

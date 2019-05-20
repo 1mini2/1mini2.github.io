@@ -24,10 +24,10 @@ background: '/img/posts/01.jpg'
 
 <h2 class="section-heading">2. 간단한 도커 명령어 사용</h2>
 <blockquote class="blockquote">도커 명령어를 이용하여 기본적인 사용법을 익혀보자. ;)</blockquote>
+<p>#docker info / 도커 전반에 대한 정보 확인</p>
 <p>#docker -v / 도커 버전 확인</p>
 <p>#docker run -i -t ubuntu:14.04 / 컨테이너 생성 및 실행 + 컨테이너 인터페이스 들어감</p>
-<blockquote class="blockquote">-i 옵션: 상호 입출력</blockquote>
-<blockquote class="blockquote">-t 옵션: tty 활성화</blockquote>
+<blockquote class="blockquote">-i 옵션: 상호 입출력<br>-t 옵션: tty 활성화</blockquote>
 <p>#docker pull ubuntu:14.04 / 도커 이미지 다운로드</p>
 <p>#docker images / 다운로드 된 도커 이미지 목록 확인</p>
 <p>#docker create -i -t --name myubuntu ubuntu:14.04 / 다운로드 된 이미지로 컨티이너 생성 (실행X)</p>
@@ -41,14 +41,6 @@ background: '/img/posts/01.jpg'
 <blockquote class="blockquote">#docker stop $(docker ps -a -q) 명령어 사용으로 실행중인 모든 컨테이너 정지</blockquote>
 <blockquote class="blockquote">#docker rm $(docker ps -a -q) 명령어 사용으로 실행중인 모든 컨테이너 삭제</blockquote>
 
-<h2 class="section-heading">3. 도커 네트워크 </h2>
-<blockquote class="blockquote">리눅스에 도커를 설치해 보자. ;)</blockquote>
-<img class="img-fluid" src=\img\posts\docker1.JPG alt="Demo Image">
-<p>#curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -</p>
-<p>#add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"</p>
-<p>#apt-get update</p>
-<p>#apt-get install docker-ce</p>
-
 <h2 class="section-heading">3. 도커로 2 tier 서비스 실습 </h2>
 <blockquote class="blockquote">wordpress image를 이용하여 도커에 2 tier 서비스를 설치해 보자. ;)</blockquote>
 <blockquote class="blockquote">option -e, configure parameter in the container.</blockquote>
@@ -56,7 +48,8 @@ background: '/img/posts/01.jpg'
 <p>#docker run -d --name wordpressdb -e MYSQL_ROOT_PASSWORD=password -e MYSQL_DATABASE=wordpress mysql:5.7</p>
 <p>#docker run -d -e WORDPRESS_DB_PASSWORD=password --name wordpress --link wordpressdb:mysql -p 80:80 wordpress</p>
 
-<blockquote class="blockquote">* how to get into containter which running DB or Web?</blockquote>
+<blockquote class="blockquote">상호입출력이 없는 상태로 실행 된 컨테이너는 컨테이너 내부에서 프로그램이 터미널을 차지하는 포그라운드로 실행 돼 사용자의 입력을 받지 않습니다.
+</blockquote>
 <blockquote class="blockquote">#docker exec [options] [command]</blockquote>
 <blockquote class="blockquote">#docker exec -i -t wordpressdb /bin/bash</blockquote>
 <blockquote class="blockquote">#docker exec wordpressdb ls /</blockquote>

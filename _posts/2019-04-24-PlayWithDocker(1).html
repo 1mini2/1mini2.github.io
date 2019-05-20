@@ -9,21 +9,33 @@ background: '/img/posts/01.jpg'
 <h2 class="section-heading">도커란?</h2>
 <p>리눅스 자체 기능을 사용하여 프로세스 단위의 격리 환경을 만들어 사용하는 개념</p>
 <p></p>
-<p>컨테이너를 구현하기 위한 (프로세스 단위의 격리 환경을 생성하기 위한) 리눅스 기능</p>
+<p>컨테이너를 구현하기 위한 (프로세스 단위의 격리 환경을 생성하기 위한) 리눅스 기능을 이용함</p>
 <p>chroot, namespace, cgroup 등</p>
 
 <h2 class="section-heading">테스트 환경</h2>
 <p>(AWS EC2) Ubuntu 16.04.5 LTS</p>
 
-<h2 class="section-heading">Install Docker</h2>
+<h2 class="section-heading">1. 도커 설치</h2>
 <blockquote class="blockquote">리눅스에 도커를 설치해 보자. ;)</blockquote>
 <p>#curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -</p>
 <p>#add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"</p>
 <p>#apt-get update</p>
 <p>#apt-get install docker-ce</p>
 
+<h2 class="section-heading">2. 간단한 도커 명령어 사용</h2>
+<blockquote class="blockquote">도커 명령어를 이용하여 기본적인 사용법을 익혀보자. ;)</blockquote>
+<p>#docker -v / 도커 버전 확인</p>
+<p>#docker run -i -t ubuntu:14.04 / 컨테이너 생성 및 실행 + 컨테이너 인터페이스 들어감</p>
+<blockquote class="blockquote">-i 옵션: 상호 입출력</blockquote>
+<blockquote class="blockquote">-t 옵션: tty 활성화</blockquote>
+<p>#docker pull ubuntu:14.04 / 도커 이미지 다운로드</p>
+<p>#docker images / 다운로드 된 도커 이미지 목록 확인</p>
+<p>#docker create -i -t --name myubuntu ubuntu:14.04 / 다운로드 된 이미지로 컨티이너 생성 (실행X)</p>
+<p>#docker start myubuntu / 생성된 컨테이너 실행</p>
+<p>#docker attach myubuntu / 실행한 컨테이너에 접속</p>
+
 <h2 class="section-heading">Install wordpress Container </h2>
-<blockquote class="blockquote">도커를 wordpress image를 이용하여 2 tier 서비스를 설치해 보자. ;)</blockquote>
+<blockquote class="blockquote">wordpress image를 이용하여 도커에 2 tier 서비스를 설치해 보자. ;)</blockquote>
 <blockquote class="blockquote">option -e, configure parameter in the container.</blockquote>
 <blockquote class="blockquote">opdion -p, binding container's network port to host's network port, this configure is for internet communication.</blockquote>
 <p>#docker run -d --name wordpressdb -e MYSQL_ROOT_PASSWORD=password -e MYSQL_DATABASE=wordpress mysql:5.7</p>

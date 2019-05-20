@@ -37,19 +37,22 @@ background: '/img/posts/docker/Background.jpg'
     <strong>#docker network create --driver bridge --subnet=172.72.0.0/16 --ip-range=172.72.0.0/24 --gateway=172.72.0.1 "브릿지명"</strong> - IP 대역 지정하여 브릿지 인터페이스 생성<br>
     <img class="img-fluid" src=\img\posts\docker\dockernet2.JPG alt="Demo Image">
     <strong>#docker run -i -t --name network_bridge --net "브릿지명" ubuntu:14.04</strong> - 새로 생성한 네트워크 브릿지에 연결되는 컨테이너 생성 및 실행<br>
-    <img class="img-fluid" src=\img\posts\docker\dockernet3.JPG alt="Demo Image">
+    <img class="img-fluid" src=\img\posts\docker\dockernet3.JPG alt="Demo Image"><br>
+    <blockquote class="blockquote">설정한 브릿지의 IP가 할당되어있는것을 확인</blockquote><br>
 <br>
     <strong>2. host network</strong><br><br>
     컨테이너를 위한 별도의 네트워크 설정 없이, 호스트에 설정된 네트워크 환경을 그대로 사용하는 방식<br>
     호스트 머신에서 설정한 호스트명, 네트워크 설정 모두 컨테이너가 물려받는 방식으로, host network 방식으로 생성된 컨테이너는 별도의 포트포워딩 등의 설정 없으 바로 서비스 할 수 있음<br>
     <strong>#docker run -i -t --name network_host --net host ubuntu:14.04</strong><br> - host 네트워크를 사용하는 컨테이너 생성<br>
     <img class="img-fluid" src=\img\posts\docker\dockernet4.JPG alt="Demo Image"><br>
+    <blockquote class="blockquote">호스트명/IP 모두 호스트와 같음을 확인</blockquote><br>
 <br>
     <strong>3. none network</strong><br><br>
     인터페이스가 없는 상태로 컨테이너를 생성<br>
     격리된 네트워크 영역을 가지며, 외부와의 연결이 단절 됨<br>
     <strong>#docker run -i -t network_none --net none ubuntu:14.04</strong> - none 네트워크를 사용하는 컨테이너 생성<br>
     <img class="img-fluid" src=\img\posts\docker\dockernet5.JPG alt="Demo Image">
+    <blockquote class="blockquote">lo 외 별도 네트워크가 설정되어있지 않음 확인</blockquote><br>
 
 </p>
 

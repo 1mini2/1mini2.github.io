@@ -9,12 +9,12 @@ background: '/img/posts/docker/Background.jpg'
 
 <h2 class="section-heading">도커의 네트워크 구조</h2>
 <blockquote class="blockquote">가장 기본적인 도커 네트워크 구조를 살펴보자 ;-)</blockquote>
-<img class="img-fluid" src=\img\posts\dockernet1.JPG alt="Demo Image">
+<img class="img-fluid" src=\img\posts\docker\dockernet1.JPG alt="Demo Image">
 <p>
   도커 네트워크를 구성하는 요소 <br>
-  1. eth0: 호스트의 물리 네트워크 인터페이스 <br>
-  2. docker0: 가상 브릿지 네트워크, 각 veth와 바인딩 되어 eth0 인터페이스와 이어주는 역할을 하는 인터페이스<br>
-  3. veth-XX: 컨테이너가 생길때 자동으로 생성되며, 각 컨테이너의 네트워크 통신을 위한 가상 네트워크 인터페이스. 컨테이너 내부의 eth0 인터페이스와 연결됨.<br>
+  <strong>1. eth0</strong>: 호스트의 물리 네트워크 인터페이스 <br>
+  <strong>2. docker0</strong>: 가상 브릿지 네트워크, 각 veth와 바인딩 되어 eth0 인터페이스와 이어주는 역할을 하는 인터페이스<br>
+  <strong>3. veth-XX</strong>: 컨테이너가 생길때 자동으로 생성되며, 각 컨테이너의 네트워크 통신을 위한 가상 네트워크 인터페이스. 컨테이너 내부의 eth0 인터페이스와 연결됨.<br>
 </p>
 
 

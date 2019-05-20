@@ -10,20 +10,20 @@ background: '/img/posts/docker/Background.jpg'
 <h2 class="section-heading">도커의 네트워크 구조</h2>
 <blockquote class="blockquote">가장 기본적인 도커 네트워크 구조를 살펴보자 ;-)</blockquote>
 <img class="img-fluid" src=\img\posts\docker\dockernet1.JPG alt="Demo Image">
+<h3>● 도커 네트워크를 구성하는 요소 </h3><br>
 <p>
-  ● 도커 네트워크를 구성하는 요소 <br>
   <strong>1. eth0</strong>: 호스트의 물리 네트워크 인터페이스<br>
   <strong>2. docker0</strong>: 가상 브릿지 네트워크, 각 veth와 바인딩 되어 eth0 인터페이스와 이어주는 역할을 하는 인터페이스<br>
   <strong>3. veth-XX</strong>: 컨테이너가 생길때 자동으로 생성되며, 각 컨테이너의 네트워크 통신을 위한 가상 네트워크 인터페이스. 컨테이너 내부의 eth0 인터페이스와 연결됨.<br>
 </p>
+<h3>● 도커 네트워크 확인 명령어 </h3><br>
 <p>
-  ● 도커 네트워크 확인 명령어 <br>
   <strong>#docker network ls</strong> - 도커 네트워크 목록 확인<br>
   <strong>#docker network inspect bridge</strong> - 도커 네트워크의 자세한 정보 확인<br>
   <strong>#</strong> - 도커 네트워크 목록 확인<br>
 </p>
+<h3>● 도커 네트워크 타입 종류</h3>
 <p>
-  ● 도커 네트워크 타입 종류 <br>
     <strong>1. bridge network</strong><br>
     docker의 기본 네트워크 방식(Default docker0 브릿지 네트워크)<br>
     컨테이너를 생성하게 되면, 각 컨테이너마다 고유한 network namespace 영역이 하나씩 생성되며, 이때 docker 브릿지에 컨테이너들의 인터페이스가 하나씩 바인딩 되는 구조이다.<br>
@@ -31,11 +31,12 @@ background: '/img/posts/docker/Background.jpg'
     &nbsp;&nbsp;<u>#docker network create --driver bridge "브릿지명"</u> - 새로운 브릿지 인터페이스 생성<br>
     &nbsp;&nbsp;<u>#docker network create --driver bridge --subnet=172.72.0.0/16 --ip-range=172.72.0.0/24 --gateway=172.72.0.1 "브릿지명"</u> - IP 대역 지정하여 브릿지 인터페이스 생성
     &nbsp;&nbsp;<u>#doaker run -i -t --name network_container --net "브릿지명" ubuntu:14.04</u> - 새로 생성한 네트워크 브릿지에 연결되는 컨테이너 생성 및 실행<br>
-    <strong>2. host network</strong>
+    <strong>2. host network</strong><br>
+    컨테이너가 독립적인 네트워크 영역을 갖지 않고 host와 네트워크를 함께 사용하는 방식
     &nbsp;&nbsp;
     &nbsp;&nbsp;
     &nbsp;&nbsp;
-    <strong>3. none network</strong>
+    <strong>3. none network</strong><br>
 </p>
 
 

@@ -64,7 +64,7 @@ background: '/img/posts/docker/Background.jpg'
     <strong>#docker run -i -t -d --name network_container_1 ubuntu:14.04</strong>
     <strong>#docker run -i -t -d --name network_container_2 --net container:network_container_1 ubuntu:14.04</strong>
     <img class="img-fluid" src=\img\posts\docker\dockernet6.JPG alt="Demo Image"><br>
-
+    <blockquote class="blockquote">container_1 및 container_2의 ip 설정이 같음을 확인, network_container_1 컨테이너 삭제 시 network_container_2 컨테이너의 네트워크 인터페이스(eth0) 사라짐.</blockquote><br>
 
     <p>
       <div id="disqus_thread"></div>

@@ -12,6 +12,7 @@ background: '/img/posts/aws/Background.jpg'
   <span style="color:#0063DC">
     <font size=4>
     On-Premise 환경에서 서비스 하던 서버를 AWS 플랫폼으로 가져오는 실습을 진행합니다.
+    이번 POST에서는 마이그레이션 자체에 대한 LAB을 진행하고, 다음 POST에서는 모니터링에 대하여 다루게 됩니다.
     </font>
   </span>
 </p>
@@ -20,7 +21,9 @@ background: '/img/posts/aws/Background.jpg'
   <font size=4>
     <strong>[진행 순서]</strong> <br>
     사전확인: VM의 서비스 정상동작 확인<br>
-    사전작업: AWS IAM Role에 SMS Role 추가<br>
+    사전작업:
+    &nbsp;&nbsp;1)AWS IAM Role에 SMS Role 추가<br>
+    &nbsp;&nbsp;2)VM에 ADS Agent 설치
     1. Hyper-V에 Server Migration Service Connector 다운로드 및 배포<br>
     2. Hyper-V에 Configuration script 다운로드, 설치 및 실행<br>
     &nbsp;&nbsp;2-1) Script 실행<br>
@@ -64,15 +67,40 @@ background: '/img/posts/aws/Background.jpg'
 <br>
 <hr color="black" size="4">
 <br>
-<h4>● 1.Hyper-V에 Server Migration Service Connector 다운로드 및 배포</h4>
+<h4>● 사전작업 1) AWS IAM Role에 SMS Role 추가</h4>
 <span style="color:black">
   <font size=4>
-    Hyper-V에 정보가
-    <img class="img-fluid" src=\img\posts\aws\HOL1-2.JPG alt="Demo Image"> <br>
-    현재 Hyper-V 위에 동작하고있는 가상머신은 WEB 서비스를 운영하고 있습니다.
+    1. AWS 관리 콘솔에서 IAM 을 선택한 후 네비게이션에서 Roles 를 선택합니다. <br>
+    2. Create role 버튼을 클릭합니다. <br>
+    3. Create role 화면에서 Choose the service that will use this role 에서 SMS 를 선택한 후 Next: Permissions 를 클릭합니다. <br>
+    4. “Attached permission policies” 화면에서 ServerMigrationServiceRole 을 확인 후 Next:Tags 를 클릭합니다. <br>
+    5. Add Tags(optional) 화면에서 Nex:Review 를 클릭합니다. <br>
+    6. 나머지 화면은 Default 로 나두고 Next 버튼을 클릭합니다. <br>
+    7. Review 화면에서 Role Name 에 sms 를 입력한 후 Create role 버튼을 클릭합니다. <br>
+    8. Roles 화면에서 sms 가 정상적으로 생성되었는지 확인합니다. <br>
+    <img class="img-fluid" src=\img\posts\aws\HOL1-3.JPG alt="Demo Image"> <br>
   </font>
 </span>
-
+<h4>● 사전작업 2) VM에 AWS ADS Agent 설치</h4>
+<span style="color:#FF0084">
+  <font size=4>
+    <a href="https://docs.aws.amazon.com/ko_kr/application-discovery/latest/userguide/discovery-agent.html">AWS ADS Agent</a>란, AWS Application Discovery Agent의 약자로서 마이그레이션할 대상인 온프레이스 서버 및 VM에 설치하는 AWS 소프트웨어입니다.
+    시스템 구성, 성능, 실행중인 프로세스 및 시스템간의 네트워크 연결에 대한 세부정보 등을 캡쳐합니다.
+  </font>
+</span>
+<span style="color:black">
+  <font size=4>
+    1. AWS 관리 콘솔에서 IAM 을 선택한 후 네비게이션에서 Roles 를 선택합니다. <br>
+    2. Create role 버튼을 클릭합니다. <br>
+    3. Create role 화면에서 Choose the service that will use this role 에서 SMS 를 선택한 후 Next: Permissions 를 클릭합니다. <br>
+    4. “Attached permission policies” 화면에서 ServerMigrationServiceRole 을 확인 후 Next:Tags 를 클릭합니다. <br>
+    5. Add Tags(optional) 화면에서 Nex:Review 를 클릭합니다. <br>
+    6. 나머지 화면은 Default 로 나두고 Next 버튼을 클릭합니다. <br>
+    7. Review 화면에서 Role Name 에 sms 를 입력한 후 Create role 버튼을 클릭합니다. <br>
+    8. Roles 화면에서 sms 가 정상적으로 생성되었는지 확인합니다. <br>
+    <img class="img-fluid" src=\img\posts\aws\HOL1-3.JPG alt="Demo Image"> <br>
+  </font>
+</span>
 <!-- 댓글 -->
     <p>
       <div id="disqus_thread"></div>

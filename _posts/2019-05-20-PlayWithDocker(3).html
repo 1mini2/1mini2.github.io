@@ -58,10 +58,16 @@ background: '/img/posts/docker/Background.jpg'
     다른 컨테이너의 네트워크 환경을 공유하는 방식<br>
     내부IP, MAC 주소가 공유 됨<br>
     <strong>#docker run -i -t -d --name network_container_1 ubuntu:14.04</strong>
-    <strong>#docker run -i -t -d --name network_container_2 --net container:network_container_1 ubuntu:14.04</strong>
-    <br>
-    <hr color="black" size="4">
-    <br>
+    <strong>#docker run -i -t -d --name network_container_2 --net container:network_container_1 ubuntu:14.04</strong><br>
+<br>
+<hr color="black" size="4">
+<br>
+<h3>● 특정 호스트이름으로 컨테이너에 접근</h3>
+<p>
+    브릿지 타입의 네트워크와 run 명령어의 --net-alias 옵션을 함께 사용하면 특정 호스트 이름으로 여러 컨테이너에 접속할 수 있음
+</p>
+
+
     <p>
       <div id="disqus_thread"></div>
       <script>

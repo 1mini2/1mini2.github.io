@@ -86,19 +86,16 @@ background: '/img/posts/aws/Background.jpg'
   <font size=4>
     <a href="https://docs.aws.amazon.com/ko_kr/application-discovery/latest/userguide/discovery-agent.html">AWS ADS Agent</a>란, AWS Application Discovery Agent의 약자로서 마이그레이션할 대상인 온프레이스 서버 및 VM에 설치하는 AWS 소프트웨어입니다.
     시스템 구성, 성능, 실행중인 프로세스 및 시스템간의 네트워크 연결에 대한 세부정보 등을 캡쳐합니다.
+    VMware의 경우 Connector 방식을 사용하지만, Hyper-V는 VM에 Agent를 설치하여 VM에 정보를 수집합니다.
   </font>
 </span>
 <span style="color:black">
   <font size=4>
-    1. AWS 관리 콘솔에서 IAM 을 선택한 후 네비게이션에서 Roles 를 선택합니다. <br>
-    2. Create role 버튼을 클릭합니다. <br>
-    3. Create role 화면에서 Choose the service that will use this role 에서 SMS 를 선택한 후 Next: Permissions 를 클릭합니다. <br>
-    4. “Attached permission policies” 화면에서 ServerMigrationServiceRole 을 확인 후 Next:Tags 를 클릭합니다. <br>
-    5. Add Tags(optional) 화면에서 Nex:Review 를 클릭합니다. <br>
-    6. 나머지 화면은 Default 로 나두고 Next 버튼을 클릭합니다. <br>
-    7. Review 화면에서 Role Name 에 sms 를 입력한 후 Create role 버튼을 클릭합니다. <br>
-    8. Roles 화면에서 sms 가 정상적으로 생성되었는지 확인합니다. <br>
-    <img class="img-fluid" src=\img\posts\aws\HOL1-3.JPG alt="Demo Image"> <br>
+    1. VM에 AWS ADS Agent를 다운받습니다.
+    <font size="3" color="blue">#curl -o ./aws-discovery-agent.tar.gz https://s3-us-west2.amazonaws.com/aws-discovery-agent.us-west-2/linux/latest/aws-discoveryagent.tar.gz</font>
+    2. VM에 다운받은 AWS ADS Agent의 압축을 풀고 설치합니다.
+    <font size="3" color="blue">#tar -xzf aws-discovery-agent.tar.gz</font>
+    <font size="3" color="blue"># bash install -r us-west-2 -k "AWS key id" -s "AWS key secret"</font>
   </font>
 </span>
 <!-- 댓글 -->

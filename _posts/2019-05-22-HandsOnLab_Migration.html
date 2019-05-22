@@ -61,7 +61,7 @@ background: '/img/posts/aws/Background.jpg'
   <font size=4>
     가상머신에서 웹 서버가 올바르게 동작하고 있는지 확인합니다.
     <img class="img-fluid" src=\img\posts\aws\HOL1-2.JPG alt="Demo Image"> <br>
-    현재 Hyper-V 위에 동작하고있는 가상머신은 WEB 서비스를 운영하고 있습니다.
+    현재 Hyper-V 위에 동작하고있는 가상머신은 WEB 서비스를 정상적으로 운영하고 있습니다.
   </font>
 </span>
 <br>
@@ -81,21 +81,22 @@ background: '/img/posts/aws/Background.jpg'
     <img class="img-fluid" src=\img\posts\aws\HOL1-3.JPG alt="Demo Image"> <br>
   </font>
 </span>
+<br>
 <h4>● 사전작업 2) VM에 AWS ADS Agent 설치</h4>
 <span style="color:#FF0084">
   <font size=4>
-    <a href="https://docs.aws.amazon.com/ko_kr/application-discovery/latest/userguide/discovery-agent.html">AWS ADS Agent</a>란, AWS Application Discovery Agent의 약자로서 마이그레이션할 대상인 온프레이스 서버 및 VM에 설치하는 AWS 소프트웨어입니다.
-    시스템 구성, 성능, 실행중인 프로세스 및 시스템간의 네트워크 연결에 대한 세부정보 등을 캡쳐합니다.
-    VMware의 경우 Connector 방식을 사용하지만, Hyper-V는 VM에 Agent를 설치하여 VM에 정보를 수집합니다.
+    <a href="https://docs.aws.amazon.com/ko_kr/application-discovery/latest/userguide/discovery-agent.html" style="color:#FF0084">AWS ADS Agent</a>란, AWS Application Discovery Agent의 약자로서 마이그레이션할 대상인 온프레이스 서버 및 VM에 설치하는 AWS 소프트웨어입니다. <br>
+    시스템 구성, 성능, 실행중인 프로세스 및 시스템간의 네트워크 연결에 대한 세부정보 등을 캡쳐합니다. <br>
+    VMware의 경우 Connector 방식을 사용하지만, Hyper-V는 VM에 Agent를 설치하여 VM에 정보를 수집합니다. <br>
   </font>
 </span>
 <span style="color:black">
   <font size=4>
-    1. VM에 AWS ADS Agent를 다운받습니다.
-    <font size="3" color="blue">#curl -o ./aws-discovery-agent.tar.gz https://s3-us-west2.amazonaws.com/aws-discovery-agent.us-west-2/linux/latest/aws-discoveryagent.tar.gz</font>
-    2. VM에 다운받은 AWS ADS Agent의 압축을 풀고 설치합니다.
-    <font size="3" color="blue">#tar -xzf aws-discovery-agent.tar.gz</font>
-    <font size="3" color="blue"># bash install -r us-west-2 -k "AWS key id" -s "AWS key secret"</font>
+    1. VM에 AWS ADS Agent를 다운받습니다.<br>
+    <font size="3" color="blue">#curl -o ./aws-discovery-agent.tar.gz https://s3-us-west2.amazonaws.com/aws-discovery-agent.us-west-2/linux/latest/aws-discoveryagent.tar.gz</font><br>
+    2. VM에 다운받은 AWS ADS Agent의 압축을 풀고 설치합니다.<br>
+    <font size="3" color="blue">#tar -xzf aws-discovery-agent.tar.gz</font><br>
+    <font size="3" color="blue"># bash install -r us-west-2 -k "AWS key id" -s "AWS key secret"</font><br>
   </font>
 </span>
 <!-- 댓글 -->

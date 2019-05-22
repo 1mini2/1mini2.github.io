@@ -9,7 +9,7 @@ background: '/img/posts/aws/Background.jpg'
 <hr color="black" size="4">
 <h2 class="section-heading" align="center">AWS Migration (1)</h2>
 <p>
-  <span style="color:#14148C">
+  <span style="color:#0063DC">
     <font size=4>
     On-Premise 환경에서 서비스 하던 서버를 AWS 플랫폼으로 가져오는 실습을 진행합니다.
     </font>
@@ -20,6 +20,7 @@ background: '/img/posts/aws/Background.jpg'
   <font size=4>
     <strong>[진행 순서]</strong> <br>
     사전확인: VM의 서비스 정상동작 확인<br>
+    사전작업: AWS IAM Role에 SMS Role 추가<br>
     1. Hyper-V에 Server Migration Service Connector 다운로드 및 배포<br>
     2. Hyper-V에 Configuration script 다운로드, 설치 및 실행<br>
     &nbsp;&nbsp;2-1) Script 실행<br>
@@ -50,20 +51,27 @@ background: '/img/posts/aws/Background.jpg'
   </font>
 </span>
 <br>
+<hr color="black" size="4">
+<br>
 <h4>● 사전 확인 </h4>
 <span style="color:black">
-  <font size=2>
-    Hyper-V IP: 13.209.210.224<br>
-    Hyper-V ID/PW : sms11 / P@ssword1234<br>
-    VM: web11 (hostname: web11.seoul, IP: 192.168.137.111)<br>
-    SMS 설정정보:<br>
-    &nbsp;&nbsp;1.AD user: Corp\sms11<br>
-    &nbsp;&nbsp;2.SMS Connector IP: 192.168.137.211<br>
+  <font size=4>
+    가상머신에서 웹 서버가 올바르게 동작하고 있는지 확인합니다.
+    <img class="img-fluid" src=\img\posts\aws\HOL1-2.JPG alt="Demo Image"> <br>
+    현재 Hyper-V 위에 동작하고있는 가상머신은 WEB 서비스를 운영하고 있습니다.
   </font>
 </span>
 <br>
-
-
+<hr color="black" size="4">
+<br>
+<h4>● 1.Hyper-V에 Server Migration Service Connector 다운로드 및 배포</h4>
+<span style="color:black">
+  <font size=4>
+    Hyper-V에 정보가
+    <img class="img-fluid" src=\img\posts\aws\HOL1-2.JPG alt="Demo Image"> <br>
+    현재 Hyper-V 위에 동작하고있는 가상머신은 WEB 서비스를 운영하고 있습니다.
+  </font>
+</span>
 
 <!-- 댓글 -->
     <p>

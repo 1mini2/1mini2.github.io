@@ -13,6 +13,7 @@ background: '/img/posts/aws/Background.jpg'
     <font size=4>
     On-Premise 환경에서 서비스 하던 서버를 AWS 플랫폼으로 가져오는 실습을 진행합니다.
     이번 POST에서는 마이그레이션 자체에 대한 LAB을 진행하고, 다음 POST에서는 모니터링에 대하여 다루게 됩니다.
+    Server Migration에 대한 정확한 정보는 AWS 공식 홈페이지의 Document를 참고해야합니다.
     </font>
   </span>
 </p>
@@ -104,17 +105,21 @@ background: '/img/posts/aws/Background.jpg'
 <br>
 <h4>● 1. Hyper-V에 Server Migration Service Connector 다운로드 및 배포 </h4>
 <font size=2 style="color:#FF0084">
-  Server Migration Service Connectr의 역할:  <br>
+  Server Migration Service Connectr는   <br>
 </font>
 <span style="color:black">
   <font size=4>
     1. Hyper-V 호스트 서버에서 AWS-SMS-Connector-for-SCVMM-HyperV.zip 다운로드합니다.<br>
     <font size="3" color="blue">https://s3.amazonaws.com/sms-connector/AWS-SMS-Connector-for-SCVMM-HyperV.zip</font><br>
     2. Hyper-V 호스트 서버에서 Connector Setup 합니다.<br>
+    <font color="gray">
     &nbsp;&nbsp;2-1) AWS-SMS-Connector-for-SCVMM-HyperV.zip 파일을 압축 해제 합니다.<br>
     &nbsp;&nbsp;2-2) Windows Administrative Tools 폴더에 있는 Hyper-V Manager를 실행합니다.<br>
     &nbsp;&nbsp;2-3) Hyper-V Manager에서 "Import Virtual Machine"을 선택하여 압축해제 한 AWS-SMS-Connector-for-SCVMM-HyperV(VHD)를 가상머신으로 생성합니다.<br>
-
+    &nbsp;&nbsp;2-4) 생성한 Connector는 "AWS-SMS-Connector"라는 이름으로 생성됩니다. 해당 가상머신을 더블클릭하여 콘솔창이 뜨면 "start"버튼을 눌러 가상머신을 시작합니다.<br>
+    &nbsp;&nbsp;2-5) 가상머신이 시작되면, 계정:ec2-user/암호:ec2pass 를 입력하여 로그인합니다.<br>
+    &nbsp;&nbsp;2-6) 기본적으로 DHCP로 설정되어있습니다. 가상머신의 IP를 static IP로 변경합니다. 옵션2-옵션2-IP설정(통신가능한IP) <br>
+    </font>
   </font>
 </span>
 <br>

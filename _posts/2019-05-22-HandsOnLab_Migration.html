@@ -44,6 +44,7 @@ background: '/img/posts/aws/Background.jpg'
 <!-- 본문 -->
 
 <h4>● 테스트 환경 </h4>
+<br>
 <span style="color:black">
   <font size=4>
     Hyper-V IP: 13.209.210.224<br>
@@ -58,6 +59,7 @@ background: '/img/posts/aws/Background.jpg'
 <hr color="black" size="3">
 <br>
 <h4>● 사전 확인 </h4>
+<br>
 <span style="color:black">
   <font size=4>
     가상머신에서 웹 서버가 올바르게 동작하고 있는지 확인합니다.
@@ -69,8 +71,9 @@ background: '/img/posts/aws/Background.jpg'
 <hr color="black" size="3">
 <br>
 <h4>● 사전작업 1) AWS IAM Role에 SMS Role 추가</h4>
+<br>
 <span style="color:black">
-  <font size=4>
+  <font size=4><strong>
     1. AWS 관리 콘솔에서 IAM 을 선택한 후 네비게이션에서 Roles 를 선택합니다. <br>
     2. Create role 버튼을 클릭합니다. <br>
     3. Create role 화면에서 Choose the service that will use this role 에서 SMS 를 선택한 후 Next: Permissions 를 클릭합니다. <br>
@@ -80,20 +83,16 @@ background: '/img/posts/aws/Background.jpg'
     7. Review 화면에서 Role Name 에 sms 를 입력한 후 Create role 버튼을 클릭합니다. <br>
     8. Roles 화면에서 sms 가 정상적으로 생성되었는지 확인합니다. <br>
     <img class="img-fluid" src=\img\posts\aws\HOL1-3.JPG alt="Demo Image"> <br>
-  </font>
+  </strong></font>
 </span>
 <br>
 <h4>● 사전작업 2) VM에 AWS ADS Agent 설치--s나중에 다시 ;;;;안깔림 curl</h4>
-<span style="color:#FF0084">
-    <a href="https://docs.aws.amazon.com/ko_kr/application-discovery/latest/userguide/discovery-agent.html" style="color:#FF0084">AWS ADS Agent</a>란, AWS Application Discovery Agent의 약자로서 마이그레이션할 대상인 온프레이스 서버 및 VM에 설치하는 AWS 소프트웨어입니다. <br>
-    시스템 구성, 성능, 실행중인 프로세스 및 시스템간의 네트워크 연결에 대한 세부정보 등을 캡쳐합니다. <br>
-    VMware의 경우 Connector 방식을 사용하지만, Hyper-V는 VM에 Agent를 설치하여 VM에 정보를 수집합니다. <br>
-</span>
+<br>
 <span style="color:black">
   <font size=4>
-    1. VM에 AWS ADS Agent를 다운받습니다.<br>
+    <strong>1. VM에 AWS ADS Agent를 다운받습니다.</strong><br>
     <font size="3" color="blue"># curl -o ./aws-discovery-agent.tar.gz https://s3-us-west2.amazonaws.com/aws-discovery-agent.us-west-2/linux/latest/aws-discoveryagent.tar.gz</font><br>
-    2. VM에 다운받은 AWS ADS Agent의 압축을 풀고 설치합니다.<br>
+    <strong>2. VM에 다운받은 AWS ADS Agent의 압축을 풀고 설치합니다.</strong><br>
     <font size="3" color="blue">#tar -xzf aws-discovery-agent.tar.gz</font><br>
     <font size="3" color="blue"># bash install -r us-west-2 -k "AWS key id" -s "AWS key secret"</font><br>
   </font>
@@ -102,11 +101,12 @@ background: '/img/posts/aws/Background.jpg'
 <hr color="black" size="3">
 <br>
 <h4>● 1. Hyper-V에 Server Migration Service Connector 다운로드 및 배포 </h4>
+<br>
 <span style="color:black">
   <font size=4>
-    1. Hyper-V 호스트 서버에서 AWS-SMS-Connector-for-SCVMM-HyperV.zip 다운로드합니다.<br>
+    <strong>1. Hyper-V 호스트 서버에서 AWS-SMS-Connector-for-SCVMM-HyperV.zip 다운로드합니다.</strong><br>
     <font size="3" color="blue">https://s3.amazonaws.com/sms-connector/AWS-SMS-Connector-for-SCVMM-HyperV.zip</font><br>
-    2. Hyper-V 호스트 서버에서 Connector Setup 합니다.<br>
+    <strong>2. Hyper-V 호스트 서버에서 Connector Setup 합니다.</strong><br>
     &nbsp;&nbsp;2-1) AWS-SMS-Connector-for-SCVMM-HyperV.zip 파일을 압축 해제 합니다.<br>
     &nbsp;&nbsp;2-2) Windows Administrative Tools 폴더에 있는 Hyper-V Manager를 실행합니다.<br>
     &nbsp;&nbsp;2-3) Hyper-V Manager에서 "Import Virtual Machine"을 선택하여 압축해제 한 AWS-SMS-Connector-for-SCVMM-HyperV(VHD)를 가상머신으로 생성합니다.<br>
@@ -114,6 +114,23 @@ background: '/img/posts/aws/Background.jpg'
     &nbsp;&nbsp;2-5) 가상머신이 시작되면, <strong>sudo setup.rb</strong> 명령어를 실행한 후 <strong>계정:ec2-user/암호:ec2pass</strong> 를 입력하여 로그인합니다.<br>
     &nbsp;&nbsp;2-6) 기본적으로 DHCP로 설정되어있습니다. 가상머신의 IP를 static IP로 변경합니다. 옵션2-옵션2-IP설정(통신가능한IP) <br>
   </font>
+</span>
+<br>
+<hr color="black" size="3">
+<br>
+<h4>● 2. Hyper-V에 Configuration script 다운로드, 설치 및 실행 </h4>
+<br>
+<span style="color:black">
+  <font size=4>
+    <strong>1. Hyper-V에 Hyper-V Configuration Connector 스크립트를 다운로드 합니다.</strong><br>
+    <font size="3" color="blue">https://s3.amazonaws.com/sms-connector/aws-sms-hyperv-setup.ps1</font><br>
+    <strong>2. Windows Power Shell에 마우스를 댄 후 오른쪽 버튼을 클릭하여 "Run as administrator"를 선택하여 관리자 모드로 PowerShell을 실행합니다.</strong><br>
+    <strong>3. 다운로드 한 스크립트를 실행합니다.</strong><br>
+    <font size="3" color="blue">C:\Users\sms11\Downloads\/aws-sms-hyperv-setup.ps1</font><br>
+    &nbsp;&nbsp;3-1) R을 눌러 실행한 후 1번을 선택합니다 <br>
+    &nbsp;&nbsp;3-2) Connector IP에 위에 입력했던 Static IP를 입력합니다. <br>
+    &nbsp;&nbsp;3-3)
+    </font>
 </span>
 <br>
 <hr color="black" size="3">

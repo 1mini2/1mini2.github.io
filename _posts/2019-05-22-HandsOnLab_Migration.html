@@ -144,6 +144,30 @@ background: '/img/posts/aws/Background.jpg'
   			5. Enter DNS 2: 176.103.130.130
   			Static IP address configured.
         </div>
+      4-3) Hyper-V 에 Hyper-V/SCVMM 구성 스크립트를 다운로드하고 설치합니다.<br>
+    	다운로드 URL: https://s3.amazonaws.com/sms-connector/aws-sms-hyperv-setup.ps1<br>
+    	PowerShell을 관리자 권한으로 시작한 후 해당 스크립트를 실행합니다.<br>
+    		a.PS C:\Users\Administrator\Desktop> .\aws-sms-hyperv-setup.ps1<br>
+    		b.R을 선택하여 실행합니다.
+        <div style="background-color:#B4B5B5">
+          Security warning<br>
+    			Run only scripts that you trust. While scripts from the internet can be useful, this script can potentially harm your<br>
+    			computer. If you trust this script, use the Unblock-File cmdlet to allow the script to run without this warning<br>
+    			message. Do you want to run C:\Users\sms11\Downloads\aws-sms-hyperv-setup.ps1?<br>
+    			[D] Do not run  [R] Run once  [S] Suspend  [?] Help (default is "D"): R<br>
+        </div>
+    		c.1번을 선택하여 단일 Hyper-V로 설치합니다.
+        <div style="background-color:#B4B5B5">
+          This script reconfigures the current Windows system (a Hyper-V host or SCVMM)<br>
+    			for server migration to AWS using the AWS Server Migration Service and<br>
+    			one or more AWS Server Migration Connector virtual appliances.<br>
+    			0. Exit<br>
+    			1. Reconfigure Hyper-V not managed by SCVMM (standalone Hyper-V)...<br>
+    			2. Reconfigure Hyper-V managed by SCVMM...<br>
+    			3. Reconfigure SCVMM...<br>
+    			4. Help/Support<br>
+    			Enter an option: 1<br>
+        </div>
   </font>
 </span>
 <br>

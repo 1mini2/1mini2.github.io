@@ -120,15 +120,39 @@ background: '/img/posts/aws/Background.jpg'
 <span style="color:black">
   <font size=4>
     4-1) Active Directory에 서버 마이그레이션 커넥터 서비스 계정을 생성합니다.<br>
-    	Server Migration connector는 Active Directory 서비스 계정이 필요합니다. 커넥터 설정 스크립트가 SCVMM/ Hyper-V 에서 실행될 수 있도록 권한을 부여해야합니다.<br>
+    Server Migration connector는 Active Directory 서비스 계정이 필요합니다. 커넥터 설정 스크립트가 SCVMM/ Hyper-V 에서 실행될 수 있도록 권한을 부여해야합니다.<br>
     	<div style="background-color:#C9FEEA"><br>
         Active Directory 사용자를 생성하려면<br>
         Active Directory 관리자는 Active Directory 관리자가 설치된 Windows 컴퓨터에서 Active Directory 관리 센터를 통해 새 사용자를 만들고 암호를 할당해야 합니다.<br>
         [Remote Management Users] 그룹에 새 사용자를 추가합니다.<br>
         <strong>※ Active Directory 환경이 아니면 사용할 수 없습니다!!!</strong><br>
       </div>
-
+    4-2) Hyper-V 에 "AWS Server Migration connecter"를 설치합니다.<br>
+  	다운로드 URL: https://s3.amazonaws.com/sms-connector/AWS-SMS-Connector-for-SCVMM-HyperV.zip<br>
+  	약 3.3GB 정도 크기의 VHD 파일이며, 가상머신으로 Import하여 Migration Connector를 생성합니다.<br>
+  	다운로드한 커넥터 파일을 Hyper-V 호스트로 전송하고 압축을 푼 다음 해당 커넥터를 VM으로 가져옵니다.<br>
+  	커넥터의 가상 머신 콘솔을 열고 ec2-user로 암호 ec2pass를 사용하여 로그인합니다.<br>
+  		a. sudo setup.rb 명령을 실행합니다.<br>
+  		b. 옵션 2를 입력합니다. (네트워크 설정 재구성)<br>
+  		c. 옵션 2를 입력합니다. (static IP 설정)<br>
+  			<div style="background-color:#B4B5B5">
+        Setting up static IP:
+  			1. Enter IP address: 172.24.251.100
+  			2. Enter netmask: 255.255.255.240
+  			3. Enter gateway: 172.24.251.97
+  			4. Enter DNS 1: 8.8.8.8
+  			5. Enter DNS 2: 176.103.130.130
+  			Static IP address configured.
+        </div>
+  </font>
+</span>
 <br>
+<hr color="black" size="3">
+<br>
+<h4>5. Migrate using the connected Migration tools </h4>
+<span style="color:black">
+  <font size=4>
+    여기에 3에 대한 내용 쓰기 안해봐서 모르게쒕<br>
   </font>
 </span>
 <br>
